@@ -1,5 +1,4 @@
 import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'snow.dart';
 
@@ -23,8 +22,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Duration _timeRemaining() {
     final now = DateTime.now();
     if (now.isAfter(christmasDate)) {
-      christmasDate =
-          DateTime(now.year + 1, 12, 25);
+      christmasDate = DateTime(now.year + 1, 12, 25);
     }
     final difference = christmasDate.difference(now);
     return difference.isNegative ? Duration.zero : difference;
@@ -35,11 +33,11 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: Colors.lightGreen,
+        backgroundColor: Colors.green,
         elevation: 0,
         title: const Text(
           'CHRISTMAS COUNTDOWN',
-          style: TextStyle(color: Colors.white),
+          style: TextStyle(color: Colors.white, fontFamily: 'RobotoMono'),
         ),
         centerTitle: true,
         leading: IconButton(
@@ -94,20 +92,20 @@ class _HomeScreenState extends State<HomeScreen> {
                 return Center(
                   child: Container(
                     width: 400,
-                    height: 130,
+                    height: 150,
                     decoration: BoxDecoration(
                       color: Colors.red,
-                      borderRadius:
-                          BorderRadius.circular(20),
+                      borderRadius: BorderRadius.circular(20),
                     ),
                     padding: EdgeInsets.all(16),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
-                              '$days:',
+                              days,
                               style: const TextStyle(
                                 fontWeight: FontWeight.bold,
                                 color: Colors.white,
@@ -120,11 +118,18 @@ class _HomeScreenState extends State<HomeScreen> {
                             )
                           ],
                         ),
-                        const SizedBox(width: 16),
+                        const VerticalDivider(
+                          width: 20,
+                          thickness: 1,
+                          indent: 25,
+                          endIndent: 17,
+                          color: Colors.white,
+                        ),
                         Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
-                              '$hours:',
+                              hours,
                               style: const TextStyle(
                                 fontWeight: FontWeight.bold,
                                 color: Colors.white,
@@ -137,11 +142,18 @@ class _HomeScreenState extends State<HomeScreen> {
                             )
                           ],
                         ),
-                        const SizedBox(width: 16),
+                        const VerticalDivider(
+                          width: 20,
+                          thickness: 1,
+                          indent: 25,
+                          endIndent: 17,
+                          color: Colors.white,
+                        ),
                         Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
-                              '$minutes:',
+                              minutes,
                               style: const TextStyle(
                                 fontWeight: FontWeight.bold,
                                 color: Colors.white,
@@ -154,8 +166,15 @@ class _HomeScreenState extends State<HomeScreen> {
                             )
                           ],
                         ),
-                        const SizedBox(width: 16),
+                        const VerticalDivider(
+                          width: 20,
+                          thickness: 1,
+                          indent: 25,
+                          endIndent: 17,
+                          color: Colors.white,
+                        ),
                         Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
                               seconds,
